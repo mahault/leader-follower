@@ -1,14 +1,10 @@
 % ============================================================================
 % Bioinspiration & Biomimetics — IOP Publishing
-% Compile on Overleaf using the IOP template:
+% To use the IOP template on Overleaf, open the template at:
 %   https://www.overleaf.com/latex/templates/template-for-iop-publishing-journals/dbftskdgszdz
-% Download iopart.cls from IOP if compiling locally.
-%
-% If iopart.cls is unavailable, change the line below to:
-%   \documentclass[12pt]{article}
-% and comment out the \submitto and \ead lines.
+% and paste this content in, changing \documentclass to {iopart}.
 % ============================================================================
-\documentclass[12pt]{iopart}
+\documentclass[12pt]{article}
 
 \usepackage{graphicx}
 \graphicspath{{figures/}}
@@ -19,19 +15,21 @@
 \usepackage{array}
 \usepackage{tabularx}
 \usepackage{mathtools}
-
-% Ensure \BB is defined (journal abbreviation for iopart \submitto)
-\providecommand{\BB}{\textit{Bioinspir. Biomim.}}
-
-\begin{document}
+\usepackage[margin=1in]{geometry}
+\usepackage{authblk}
 
 \title{Scaffolding Dynamic Leader-Follower Coordination in Swarm Robotics through Constraint Closure and Multi-Timescale Social Interactions}
 
-\author{Pranay Vaddepalli$^{1}$, Fethi Candan$^{1}$ and Alejandro Jimenez Rodriguez$^{1}$}
+\author[1]{Pranay Vaddepalli}
+\author[1]{Fethi Candan}
+\author[1]{Alejandro Jimenez Rodriguez\thanks{Corresponding author. E-mail: ajimenez3@usf.edu}}
+\affil[1]{Department of Computer Science, University of South Florida, Tampa, FL, USA}
 
-\address{$^{1}$ Department of Computer Science, University of South Florida, Tampa, FL, USA}
+\date{}
 
-\ead{ajimenez3@usf.edu}
+\begin{document}
+
+\maketitle
 
 \begin{abstract}
 Multi-agent systems face a fundamental stability-plasticity dilemma: maintaining coherent coordination while adapting to environmental disruptions. Biological social groups solve this through \emph{constraint closure}---circular causal loops where individual actions generate group-level constraints that in turn shape future individual behaviour. Whether such mechanisms can scaffold emergent leader-follower coordination in artificial swarms remains an open question.
@@ -40,11 +38,6 @@ We present a three-timescale architecture---fast task execution, medium-rate ene
 
 Three principal findings emerge. First, circular causality is confirmed through detrended cross-correlation across a four-link causal chain (Success $\to$ Energy $\to$ Grooming $\to$ Bonds), with multi-run validation ($N=50$, lag-10 peak $r = 0.153 \pm 0.016$). Second, channel-specific perturbation response constitutes the paper's most novel contribution: resource scarcity targets the explicit pressure channel while bonds remain buffered ($S_\mathrm{VN}$ stable at ${\sim}0.101$--$0.105$), whereas leader removal targets the implicit channel, triggering structural reorganisation ($S_\mathrm{VN}$: $0.101 \to 0.085 \to 0.151$). The system shows minimal degradation under extreme perturbation (0.9--2.3\% immediate performance loss), with distinct thermodynamic recovery signatures depending on perturbation type. Third, bidirectional causal symmetry is established through controlled average treatment effect analysis with Cohen's $d$ normalisation, collapsing an apparent $870\times$ asymmetry in raw Granger statistics to approximate parity: individual behaviour is more \emph{efficient} per unit intervention ($d \approx 1.7$--$2.2$), while the group exerts more \emph{total force} ($d \approx 1.2$--$1.6$). Scalability analysis identifies a coordination limit at 10--12 agents, paralleling grooming bandwidth constraints observed in primate social groups.
 \end{abstract}
-
-% PACS/keywords
-\submitto{\BB}
-
-\maketitle
 
 %==============================================================================
 \section{Introduction}
