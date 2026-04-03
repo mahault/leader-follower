@@ -17,6 +17,8 @@
 \usepackage{mathtools}
 \usepackage[margin=1in]{geometry}
 \usepackage{authblk}
+\usepackage{float}
+\usepackage[section]{placeins}
 
 \title{Scaffolding Dynamic Leader-Follower Coordination in Swarm Robotics through Constraint Closure and Multi-Timescale Social Interactions}
 
@@ -140,7 +142,7 @@ where $\mu_i$ are the eigenvalues of the symmetric bond matrix $\mathbf{A}(t)$ n
 
 The simulation models $N$ agents (default $N = 10$) performing a collective foraging task over $T = 5000$ trials. Each trial consists of five phases: initiator selection, follower recruitment, task execution, grooming, and energy dynamics.
 
-\begin{figure}[t]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.8\columnwidth]{simulation.png}
 \caption{Task schematic illustrating the four phases of a single trial. (1)~An initiator is selected and decides whether to recruit followers. (2)~Followers decide whether to join based on bond strength. (3)~The group executes the task and engages in grooming. (4)~Successful coordination yields shared energy rewards. Any agent may be selected as initiator, but only those with strong bonds successfully recruit followers---leadership \emph{emerges} from accumulated social bonds.}
@@ -220,7 +222,7 @@ Effect sizes are reported as Cohen's $d = \mathrm{ATE}/s_\mathrm{pooled}$, which
 \subsection{Circular causality validates constraint closure}
 \label{sec:circularcausality}
 
-\begin{figure}[t]
+\begin{figure}[H]
 \centering
 \subfloat[Single-run cross-correlations]{\includegraphics[width=\columnwidth]{lagged_correlations.png}\label{fig:cc_single}}\\[6pt]
 \subfloat[Multi-run validation ($N=50$)]{\includegraphics[width=\columnwidth]{multirun_crosscorrelations.png}\label{fig:cc_multi}}
@@ -243,7 +245,7 @@ The Bonds~$\to$~Success pathway---closing the causal loop---shows no significant
 \subsection{Three-phase emergence and pressure formalisation}
 \label{sec:phases}
 
-\begin{figure}[t]
+\begin{figure}[H]
 \centering
 \subfloat[Pressure crossover]{\includegraphics[width=\columnwidth]{pressure_crossover.png}\label{fig:pressure}}\\[6pt]
 \subfloat[Energy staircase]{\includegraphics[width=\columnwidth]{staircase_pattern.png}\label{fig:staircase}}
@@ -261,7 +263,7 @@ The system's dynamics unfold across three distinct phases, identified through th
 
 The staircase structure---discrete jumps in mean energy separated by plateaus---is characteristic of self-organising systems approaching criticality (figure~\ref{fig:staircase}). Each step corresponds to the successful integration of an additional agent into the coordination structure.
 
-\begin{figure}[t]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{evolution_bond_matrix.png}
 \caption{Bond matrix evolution across the three phases. Phase~I (left): bonds are sparse and approximately uniform. Phase~II (centre): a hierarchical structure emerges with 2--3 proto-leaders developing strong bonds with multiple partners. Phase~III (right): clear block structure with stable leader-follower relationships.}
@@ -292,7 +294,7 @@ This section presents the paper's most novel finding: perturbations targeting di
 
 \subsubsection{Resource scarcity (explicit channel).}
 
-\begin{figure}[t]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{scenario_resource_scarcity.png}
 \caption{System response to resource scarcity (60\% energy reduction, trials 2000--2300). Left: mean energy trajectory with control (dashed). The perturbation causes a transient dip followed by recovery and slight overshoot. Right: mean bond strength is \emph{buffered}---bonds continue to grow through the perturbation, indicating the social structure absorbs the shock without reorganisation.}
@@ -310,7 +312,7 @@ Figure~\ref{fig:scarcity} shows the system response to resource scarcity (60\% e
 
 \subsubsection{Leader removal (implicit channel).}
 
-\begin{figure}[t]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{scenario_leader_removal.png}
 \caption{System response to permanent removal of the highest-bonded agent at trial~2000. Left: mean energy trajectory showing a larger initial dip than scarcity and slower recovery, but eventual overshoot above control. Right: bond strength drops sharply at removal then recovers through a qualitatively different, more distributed topology.}
@@ -328,7 +330,7 @@ Figure~\ref{fig:leaderremoval} shows the response to permanent removal of the hi
 
 \subsubsection{Channel specificity as diagnostic framework.}
 
-\begin{table}[t]
+\begin{table}[H]
 \caption{Thermodynamic quantities across perturbation types, with matched control comparison.}
 \label{tab:thermo}
 \centering
@@ -359,7 +361,7 @@ The three-method causal triangulation (Granger, ATE, do-operator) reveals a stri
 
 \emph{Cohen's $d$ normalisation} collapses this asymmetry to approximate parity. The raw asymmetry arises because individual-level variables (single agent energy, bonds) have much smaller natural scales than group-level variables (mean energy, bond entropy). When the treatment effect is normalised by the outcome's standard deviation, the causal influence is approximately symmetric.
 
-\begin{figure}[t]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{fig_14_ate_forward_normalized.png}
 \caption{Forward ATE dose-response curves (individual~$\to$~group) with Cohen's $d$ normalisation. Across intervention levels (10\%, 30\%, 50\%), individual-level interventions produce effect sizes $d \approx 1.7$--$2.2$, indicating efficient per-unit causal influence on group outcomes.}
@@ -372,7 +374,7 @@ Figure~\ref{fig:ate_forward} presents the forward ATE dose-response curves. Key 
 \item \emph{Reverse (group~$\to$~individual):} Cohen's $d \approx 1.2$--$1.6$. Group-level interventions produce moderate per-unit effects on individuals but operate on all agents simultaneously, generating more total causal force.
 \end{itemize}
 
-\begin{table}[t]
+\begin{table}[H]
 \caption{Causal direction synthesis across three methods. The Granger and raw ATE asymmetry reflects scale differences between individual and group variables, not genuine causal asymmetry.}
 \label{tab:causalsynthesis}
 \centering
@@ -390,7 +392,7 @@ Do-operator & Moderate & Moderate & Symmetric \\
 
 The synthesis across methods (table~\ref{tab:causalsynthesis}) resolves the apparent contradiction.
 
-\begin{figure}[t]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{fig_14_do_operator_normalized.png}
 \caption{Do-operator analysis confirming five significant causal pathways: three forward (energy~$\to$~task success, bonds~$\to$~following rate, grooming~$\to$~bond strength) and two reverse (group success rate~$\to$~individual energy, bond entropy~$\to$~individual grooming propensity).}
