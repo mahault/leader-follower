@@ -61,7 +61,7 @@ Catastrophic forgetting---the tendency for learned capabilities to degrade when 
 
 Biological social groups offer a compelling solution. Baboon troops, for instance, maintain coherent group coordination despite continuous membership changes, resource fluctuations, and predation events \cite{king2009,seyfarth2012}. Their resilience arises not from centralised control but from \emph{constraint closure}: circular causal loops where individual behaviours generate group-level social structures that subsequently constrain individual action \cite{wilson2022}. Wilson and Prescott \cite{wilson2022} formalised this as a dynamic interplay between \emph{explicit} pressures (environmental demands on individuals) and \emph{implicit} pressures (social structural constraints), arguing that the closure of these causal loops scaffolds emergent group-level competence.
 
-Existing multi-agent coordination approaches address aspects of this challenge. Consensus-based methods \cite{olfati2004,ren2005} provide mathematical convergence guarantees but assume static topologies. Market mechanisms \cite{dias2006} enable flexible task allocation but lack the persistent social memory that supports recovery from disruption. Stigmergic approaches \cite{dorigo2004,theraulaz1999} produce emergent coordination through environmental modification but offer limited social complexity. Hierarchical architectures \cite{werger2000,chen2020} impose leader-follower structures by design but cannot model leadership emergence. None of these approaches implements the circular causal architecture that characterises biological social resilience.
+Existing multi-agent coordination approaches address aspects of this challenge. Consensus-based methods \cite{olfati2004,ren2005} provide mathematical convergence guarantees but assume static topologies. Market mechanisms \cite{dias2006} enable flexible task allocation but lack the persistent social memory that supports recovery from disruption. Stigmergic approaches \cite{dorigo2000,theraulaz1999} produce emergent coordination through environmental modification but offer limited social complexity. Hierarchical architectures \cite{werger2000,chen2020} impose leader-follower structures by design but cannot model leadership emergence. None of these approaches implements the circular causal architecture that characterises biological social resilience.
 
 This gap motivates our central research question: \emph{Can constraint closure, implemented through multi-timescale social dynamics, scaffold emergent leader-follower coordination that exhibits biologically realistic resilience to environmental perturbation?}
 
@@ -425,7 +425,7 @@ An illustrative failure mode confirms the bidirectional structure: two agents (R
 \subsection{Emergent coordination through multi-timescale scaffolding}
 \label{sec:disc_scaffolding}
 
-The three-timescale architecture produces coordination through a mechanism distinct from existing approaches. Unlike consensus methods that converge to equilibrium \cite{olfati2004,ren2005}, the system exhibits \emph{staircase dynamics}---discrete qualitative transitions between coordination regimes. Unlike market mechanisms \cite{dias2006}, coordination persists through disruption because bond-based social memory provides structural inertia. Unlike stigmergic approaches \cite{dorigo2004,theraulaz1999}, the coordination substrate is internal (bonds between agents) rather than external (environmental modification).
+The three-timescale architecture produces coordination through a mechanism distinct from existing approaches. Unlike consensus methods that converge to equilibrium \cite{olfati2004,ren2005}, the system exhibits \emph{staircase dynamics}---discrete qualitative transitions between coordination regimes. Unlike market mechanisms \cite{dias2006}, coordination persists through disruption because bond-based social memory provides structural inertia. Unlike stigmergic approaches \cite{dorigo2000,theraulaz1999}, the coordination substrate is internal (bonds between agents) rather than external (environmental modification).
 
 The constraint closure architecture offers a natural solution to the stability-plasticity dilemma in continual learning \cite{parisi2019}. The differential timescales create a separation of concerns: fast task execution explores the performance landscape, medium-rate energy dynamics provide the motivational gradient for social investment, and slow bond accumulation creates structural memory that persists through perturbation. Stability emerges from the slow timescale (bonds change slowly, preserving coordination structure), while plasticity is maintained at the fast timescale (task strategies adapt immediately to changed conditions). The bond cap $B_\mathrm{cap}$ provides a natural ceiling that prevents over-commitment while preserving the three-phase structure, as confirmed by robustness across $B_\mathrm{cap} \in \{50, 100, 200\}$.
 
@@ -511,7 +511,7 @@ King A~J \emph{et al} 2009 The origins and evolution of leadership \emph{Curr. B
 Seyfarth R~M and Cheney D~L 2012 The evolutionary origins of friendship \emph{Annu. Rev. Psychol.} \textbf{63} 153--177
 
 \bibitem{wilson2022}
-Wilson S~P and Prescott T~J 2022 Scaffolding layered control architectures through constraint closure \emph{Phil. Trans. R. Soc.} B \textbf{377} 20210361
+Wilson S~P and Prescott T~J 2022 Scaffolding layered control architectures through constraint closure: insights into brain evolution and development \emph{Phil. Trans. R. Soc.} B \textbf{377} 20200519
 
 \bibitem{olfati2004}
 Olfati-Saber R and Murray R~M 2004 Consensus problems in networks of agents with switching topology and time-delays \emph{IEEE Trans. Autom. Control} \textbf{49} 1520--1533
@@ -522,8 +522,8 @@ Ren W and Beard R~W 2005 Consensus seeking in multiagent systems under dynamical
 \bibitem{dias2006}
 Dias M~B \emph{et al} 2006 Market-based multirobot coordination: a survey and analysis \emph{Proc. IEEE} \textbf{94} 1257--1270
 
-\bibitem{dorigo2004}
-Dorigo M \emph{et al} 2004 Ant algorithms and stigmergy \emph{Future Gener. Comput. Syst.} \textbf{16} 851--871
+\bibitem{dorigo2000}
+Dorigo M, Bonabeau E and Theraulaz G 2000 Ant algorithms and stigmergy \emph{Future Gener. Comput. Syst.} \textbf{16} 851--871
 
 \bibitem{theraulaz1999}
 Theraulaz G and Bonabeau E 1999 A brief history of stigmergy \emph{Artif. Life} \textbf{5} 97--116
@@ -531,8 +531,8 @@ Theraulaz G and Bonabeau E 1999 A brief history of stigmergy \emph{Artif. Life} 
 \bibitem{werger2000}
 Werger B~B and Matari\'{c} M~J 2000 Broadcast of local eligibility for multi-target observation \emph{Distributed Autonomous Robotic Systems} \textbf{4} 347--356
 
-\bibitem{chen2020}
-Chen J \emph{et al} 2020 A review of multi-robot coordination in swarm robotics \emph{IEEE Access} \textbf{8} 188610--188630
+\bibitem{verma2021}
+Verma J~K and Ranga V 2021 Multi-robot coordination analysis, taxonomy, challenges and future scope \emph{J. Intell. Robot. Syst.} \textbf{102} 10
 
 \bibitem{granger1969}
 Granger C~W~J 1969 Investigating causal relations by econometric models and cross-spectral methods \emph{Econometrica} \textbf{37} 424--438
@@ -549,8 +549,8 @@ Dunbar R~I~M 1992 Neocortex size as a constraint on group size in primates \emph
 \bibitem{flack2012}
 Flack J~C 2012 Multiple time-scales and the developmental dynamics of social systems \emph{Phil. Trans. R. Soc.} B \textbf{367} 1802--1810
 
-\bibitem{trianni2011}
-Trianni V \emph{et al} 2011 Fundamental collective behaviors in robotic swarms \emph{Swarm Intell.} \textbf{5} 255--289
+\bibitem{trianni2015}
+Trianni V and Campo A 2015 Fundamental collective behaviors in swarm robotics \emph{Springer Handbook of Computational Intelligence} ed J~Kacprzyk and W~Pedrycz (Berlin: Springer) pp 1377--1394
 
 \bibitem{brambilla2013}
 Brambilla M \emph{et al} 2013 Swarm robotics: a review from the swarm engineering perspective \emph{Swarm Intell.} \textbf{7} 1--41
@@ -570,8 +570,8 @@ Cavagna A \emph{et al} 2010 Scale-free correlations in starling flocks \emph{Pro
 \bibitem{nagy2010}
 Nagy M \emph{et al} 2010 Hierarchical group dynamics in pigeon flocks \emph{Nature} \textbf{464} 890--893
 
-\bibitem{jolles2020}
-Jolles J~W \emph{et al} 2020 The role of social attraction and its link with boldness in the collective movements of three-spined sticklebacks \emph{Anim. Behav.} \textbf{167} 155--167
+\bibitem{jolles2015}
+Jolles J~W \emph{et al} 2015 The role of social attraction and its link with boldness in the collective movements of three-spined sticklebacks \emph{Anim. Behav.} \textbf{99} 147--153
 
 \bibitem{harcourt2009}
 Harcourt J~L \emph{et al} 2009 Social feedback and the emergence of leaders and followers \emph{Curr. Biol.} \textbf{19} 248--252
@@ -579,17 +579,17 @@ Harcourt J~L \emph{et al} 2009 Social feedback and the emergence of leaders and 
 \bibitem{herbert2011}
 Herbert-Read J~E \emph{et al} 2011 Inferring the rules of interaction of shoaling fish \emph{Proc. Natl Acad. Sci. USA} \textbf{108} 18726--18731
 
-\bibitem{hand2025}
-Hand S and Watson R~A 2025 Emergence and persistence of diversity in complex networks \emph{Evol. Comput.} \textbf{33} 1--28
+\bibitem{watson2016}
+Watson R~A \emph{et al} 2016 Evolutionary connectionism: algorithmic principles underlying the evolution of biological organisation in evo-devo, evo-eco and evolutionary transitions \emph{Evol. Biol.} \textbf{43} 553--581
 
-\bibitem{chan2026}
-Chan K~Y and Kanso E 2026 Collective coordination through passive hydrodynamic interactions \emph{Phys. Rev. Lett.} \textbf{136} 028101
+\bibitem{filella2018}
+Filella A, Nadal F, Sire C, Kanso E and Eloy C 2018 Model of collective fish behavior with hydrodynamic interactions \emph{Phys. Rev. Lett.} \textbf{120} 198101
 
-\bibitem{brenes2024}
-Brenes-Torres J~C \emph{et al} 2024 Biologically inspired leader-follower coordination in multi-robot systems \emph{Robot. Auton. Syst.} \textbf{172} 104589
+\bibitem{moorthy2022}
+Moorthy S and Joo Y~H 2022 Distributed leader-following formation control for multiple nonholonomic mobile robots via bioinspired neurodynamic approach \emph{Neurocomputing} \textbf{492} 308--321
 
-\bibitem{sivaraman2025}
-Sivaraman A \emph{et al} 2025 Adaptive social learning in multi-agent systems: a meta-reinforcement learning approach \emph{Auton. Agents Multi-Agent Syst.} \textbf{39} 15
+\bibitem{zhang2019}
+Zhang C \emph{et al} 2019 SA-IGA: a multiagent reinforcement learning method towards socially optimal outcomes \emph{Auton. Agents Multi-Agent Syst.} \textbf{33} 403--429
 
 \bibitem{wilson2000}
 Wilson E~O 2000 \emph{Sociobiology: The New Synthesis} 25th anniversary edn (Cambridge, MA: Harvard University Press)
